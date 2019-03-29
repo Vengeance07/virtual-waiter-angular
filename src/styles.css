@@ -1,0 +1,69 @@
+/** CSS fix for existing template with Bootstrap 4 **/
+
+/*
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+*/
+.main-header .navbar {
+  height: 50px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.navbar-custom-menu .navbar-nav {
+  flex-direction: row;
+}
+
+.main-header .sidebar-toggle {
+  padding: 0;
+}
+
+.table th, .table td {
+  text-align: justify;
+  padding: 2px;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}
+
+.navbar-custom-menu>.navbar-nav>li {
+  margin-left: 15px;
+  position: relative;
+}
+
+.main-sidebar{
+  padding-top: 0px;
+}
+body{
+  font-size: 14px;
+}
+
+/** End of CSS fix **/
+
+/** Start of Dashboard Box **/
+.dashboard-box .box-body {
+  max-height: 300px;
+  overflow-y: scroll;
+}
+
+
+
+/** End of Dashboard box **/
+
+/** Start of Pagination box **/
+
+.page-item.active .page-link {
+  z-index: 3;
+  color: #fff;
+  cursor: default;
+  background-color: #337ab7;
+  border-color: #337ab7;
+}
+
+.page-custom{
+  padding-top:10px;
+}
+
+.viewBtn{
+  background-color: #3c8dbc;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
