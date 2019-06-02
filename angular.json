@@ -42,7 +42,13 @@
               "node_modules/admin-lte/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js",
               "node_modules/admin-lte/plugins/jvectormap/jquery-jvectormap-world-mill-en.js",
               "node_modules/admin-lte/bower_components/jquery-slimscroll/jquery.slimscroll.min.js",
-              "node_modules/admin-lte/bower_components/chart.js/Chart.js"
+              "node_modules/admin-lte/bower_components/chart.js/Chart.js",
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/materialize-css/dist/js/materialize.min.js",
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/datatables.net/js/jquery.dataTables.js",
+              "node_modules/jszip/dist/jszip.js"
+
             ]
           },
           "configurations": {

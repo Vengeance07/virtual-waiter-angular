@@ -1,0 +1,299 @@
+<div class="row">
+
+  <div class="col-md-4 col-sm-6 col-xs-12">
+    <div class="info-box">
+      <span class="info-box-icon bg-yellow">
+        <i class="fa fa-bank"></i>
+      </span>
+
+      <div class="info-box-content">
+        <span class="info-box-text">Orders</span>
+        <span class="info-box-number">{{dataList.length}}</span>
+      </div>
+      <!-- /.info-box-content -->
+    </div>
+    <!-- /.info-box -->
+  </div>
+  <!--<div class="col-md-4 col-sm-6 col-xs-12">
+    <div class="info-box">
+      <span class="info-box-icon bg-yellow">
+        <i class="fa fa-bank"></i>
+      </span>
+
+      <div class="info-box-content">
+        <span class="info-box-text">Food</span>
+        <span class="info-box-number">{{foods}}</span>
+      </div>
+      &lt;!&ndash; /.info-box-content &ndash;&gt;
+    </div>
+    &lt;!&ndash; /.info-box &ndash;&gt;
+  </div>-->
+
+  <!--<div class="col-md-4 col-sm-6 col-xs-12">
+    <div class="info-box">
+      <span class="info-box-icon bg-green">
+        <i class="fa fa-briefcase"></i>
+      </span>
+
+      <div class="info-box-content">
+        <span class="info-box-text">Finished</span>
+        <span class="info-box-number">{{finishCount}}</span>
+      </div>
+      &lt;!&ndash; /.info-box-content &ndash;&gt;
+    </div>
+    &lt;!&ndash; /.info-box &ndash;&gt;
+  </div>-->
+
+  <!--<div class="col-md-4 col-sm-6 col-xs-12">
+    <div class="info-box">
+      <span class="info-box-icon bg-maroon">
+        <i class="fa fa-address-book"></i>
+      </span>
+
+      <div class="info-box-content">
+        <span class="info-box-text">Pending</span>
+        <span class="info-box-number">{{pendingCount}}</span>
+      </div>
+      &lt;!&ndash; /.info-box-content &ndash;&gt;
+    </div>
+    &lt;!&ndash; /.info-box &ndash;&gt;
+  </div>-->
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="box box-primary">
+      <div class="box-header">
+        <!--<div class="col-md-12">
+          <div class=row>
+            <div class="col-md-3">
+              <form (ngSubmit)="onSearch()">
+                <input type="text" class="input-sm" [(ngModel)]="search.name" (input)="onSearchChange($event.target.value)" name="name" placeholder="search....">
+                <button type="submit" class="btn btn-primary btn-sm">
+                  <i class="fa fa-search"></i>
+                </button>
+              </form>
+            </div>
+            &lt;!&ndash; <h3 class="box-title">Hover Data Table</h3> &ndash;&gt;
+            <div class="col-md-9">
+              <button class="skin-blue pull-right" data-toggle="modal" (click)="addEmployee()">
+                <i class="skin-blue fa fa-plus"></i>
+              </button>
+            </div>
+          </div>
+        </div>-->
+        <!-- /.box-header -->
+        <div class="box-body">
+          <h4>Waiter Call</h4>
+          <table id="add-branch-table" class="table table-striped table-bordered table-hover ">
+
+            <thead>
+            <tr>
+              <th>S.N</th>
+              <!--<th>Date</th>-->
+              <th>Table</th>
+              <!--<th>Instruction</th>
+              <th>Quantity</th>
+              &lt;!&ndash;<th>Type</th>&ndash;&gt;
+              <th>Price</th>
+              &lt;!&ndash;<th>Table No</th>&ndash;&gt;
+              <th>Total Price</th>-->
+            </tr>
+            </thead>
+
+            <tbody>
+            <!--<script>
+              function total() {
+                var b = list.price;
+                var c = list.quantity;
+                var a = b * c;
+                document.getElementById('tot').value = b;
+              }
+            </script>-->
+            <tr *ngFor="let list of waiterList | paginate: {itemsPerPage:7, currentPage: p } ;let i=index">
+              <div *ngIf="!waiterList?.length > 0">
+                <p>No Content Found</p>
+              </div>
+
+              <td>{{i+1}}</td>
+              <!--<td>{{list.date}}</td>-->
+              <td>{{list.callWaiter}}</td>
+              <td>
+                <button class="btn btn-danger btn-sm" style="margin-left:10px" mwlConfirmationPopover [popoverTitle]="popoverTitle"
+                        [popoverMessage]="popoverMessage"
+                        placement="left"
+                        (confirm)="deleteWaiterId(list)" (cancel)="cancelClicked = true">
+                  <i class="fa fa-trash" style="color:white;"></i>
+                </button>
+                <!--<a (click)="deleteId(list)" class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="DELETE" style="margin-left:10px">
+                  <i class="fa fa-trash" style="color:white;"></i>
+                </a>-->
+              </td>
+              <!--<td>{{list.instruction}}</td>
+              <td>{{list.quantity}}</td>
+              &lt;!&ndash;<td>{{list.type}}</td>&ndash;&gt;
+              <td>{{list.price}}</td>
+              &lt;!&ndash;<td><input id="tot"/></td>&ndash;&gt;
+              <td>{{list.price * list.quantity}}</td>-->
+              <!--<td>{{list.users.userName}}</td>-->
+              <!--<td>-->
+              <!--<select [(ngModel)]="allList.status" name="status" (change)="onChange($event.target.value,allList)">-->
+              <!--<option value="ACTIVE">ACTIVE</option>-->
+              <!--<option value="INACTIVE">INACTIVE</option>-->
+
+              <!--</select>-->
+              <!--</td>-->
+              <!--<td>
+                <a (click)="openEdit(list)" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="EDIT">
+                  <i class="fa fa-edit" style="color:white"></i>
+                </a>
+                <a class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="DELETE" style="margin-left:10px">
+                  <i class="fa fa-trash" style="color:white;"></i>
+                </a>
+              </td>-->
+
+            </tr>
+            </tbody>
+          </table>
+
+
+          <pagination-controls (pageChange)="p =$event"></pagination-controls>
+
+
+          <!--
+                    <spinner *ngIf="spinner" class="d-flex justify-content-center"></spinner>
+          -->
+          <!-- ===================table-pagination==================== -->
+          <!-- <app-pagination *ngIf="!spinner"></app-pagination>-->
+          <!-- ===================table-pagination==================== -->
+          <!-- /.box-body -->
+
+          <!-- /.box -->
+
+
+
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+      <!--<app-add-category></app-add-category>-->
+      <!-- ***************************update-modal********************************** -->
+      <!--<app-update-modal></app-update-modal>-->
+      <!-- ***************************update-modal********************************** -->
+    </div></div></div>
+<div *ngFor="let u of userList">
+    <!--{{users.userName}}-->
+  <div class="box box-primary">
+    <div class="box-header with-border">
+      <h3 class="box-title">{{u.userName}} <span class="badge badge-info"></span></h3>
+      <!--<div class="box-tools pull-right">
+        <button type="button" (click)="toggle()" class="btn btn-box-tool" data-widget="collapse"><i
+          class="fa fa-plus"></i>
+        </button>
+      </div>-->
+    </div>
+    <!-- /.box-header -->
+    <div >
+      <div class="box-body">
+        <!--<div class="col-sm-offset-2 col-sm-10" *ngFor="let document of documentList">
+          <input class="big-checkbox" type="checkbox" id="document.id" (change)="updateCheckedOptions($event)"
+                 value="{{document.id}}"/>
+          <span>{{document.name}}</span>
+        </div>-->
+
+        <table #dataTable id="orderPrint" class="table table-striped table-bordered table-hover ">
+
+          <!--<thead>
+          <tr>
+            <th>S.N</th>
+            <th>Name</th>
+            <th>Instruction</th>
+            <th>Quantity</th>
+            &lt;!&ndash;<th>Type</th>&ndash;&gt;
+            <th>Price</th>
+            <th>Table No</th>
+          </tr>
+          </thead>-->
+
+
+          <tbody>
+          <tr *ngFor="let list of dataList;let i=index">
+
+            <!--<label class="container"></label>
+            <input type="checkbox" [(ngModel)]="theCheckbox"  data-md-icheck (change)="toggleVisibility($event)"/>
+            <span class="checkmark"></span>-->
+            <div *ngIf="!dataList?.length > 0">
+              <p>No Content Found</p>
+            </div>
+            <div *ngIf=" u.userName == list.users.userName">
+            <th> SN &#160;</th>
+            <td>{{i+1}} &#160;</td>
+            <!--<th> DAte</th>
+            <td>{{list.date}}</td>-->
+
+
+              <th>&#160; Name &#160;</th>
+            <td>&#160; {{list.name}} &#160;</td>
+              <th>&#160; Instruction &#160;</th>
+            <td>&#160; {{list.instruction}} &#160;</td>
+              <th>&#160; Quantity &#160;</th>
+            <td>&#160; {{list.quantity}} &#160;</td>
+             <!-- <th>Type</th>
+            <td>{{list.type}}</td>-->
+            <!--<td>{{list.price}}</td>-->
+            <!--td>{{list.user.userName}}</td>-->
+            <!--<td>-->
+            <!--<select [(ngModel)]="allList.status" name="status" (change)="onChange($event.target.value,allList)">-->
+            <!--<option value="ACTIVE">ACTIVE</option>-->
+            <!--<option value="INACTIVE">INACTIVE</option>-->
+
+            <!--</select>-->
+            <!--</td>-->
+            <td>
+              <button (click)="remove(list)" [disabled] = 'disableButton'>
+                 Finished
+              </button>
+              <button class="btn btn-danger btn-sm" style="margin-left:10px" mwlConfirmationPopover [popoverTitle]="popoverTitle"
+                      [popoverMessage]="popoverMessage"
+                      placement="left"
+                      (confirm)="deleteId(list)" (cancel)="cancelClicked = true">
+                <i class="fa fa-trash" style="color:white;"></i>
+              </button>
+              <!--<a (click)="deleteId(list)" class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="DELETE" style="margin-left:10px">
+                <i class="fa fa-trash" style="color:white;"></i>
+              </a>-->
+            </td>
+
+
+            </div>
+          </tr>
+
+          </tbody>
+
+        </table>
+
+
+
+      </div>
+      <!-- /.box-body -->
+      <!--<div class="box-footer text-right">
+        <button type="button" (click)="paid()" class="btn btn-primary">Paid</button>
+      </div>-->
+    </div>
+    <!-- /.box-footer -->
+  </div>
+  <div [class.isPrinting]="printService.isPrinting">
+    <div style="text-align: center">
+      <button (click)="onPrintInvoice()">PRINT INVOICE</button>
+      <router-outlet></router-outlet>
+      <router-outlet name="print"></router-outlet>
+    </div>
+  </div>
+
+</div>
+<!--<script>
+  function total() {
+    var price = document.getElementById()
+
+  }
+</script>-->

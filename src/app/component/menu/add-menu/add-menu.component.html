@@ -1,0 +1,68 @@
+<!--<div class="modal fade in add-menu">-->
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="display:block">
+        <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+          <span aria-hidden="true">×</span></button>
+        <h4 class="modal-title pull-left">{{task}} Menu</h4>
+      </div>
+      <div class="modal-body">
+
+        <form (ngSubmit)="onSubmit()" #forms=ngForm>
+
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-6">
+                <label for="name">Food Name</label>
+                <input type="hidden" class="form-control" [(ngModel)]="menu.id" name="id" placeholder="id">
+                <input type="text" class="form-control" #name="ngModel" required [(ngModel)]="menu.name" name="name" placeholder="Name">
+                <div *ngIf="name.invalid && (name.dirty || name.touched)">
+                  <p *ngIf="name.hasError('required')">
+                    Name is required
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label for="price">Price</label>
+                <input type="text" class="form-control" placeholder="price" required [(ngModel)]="menu.price" name="price" appNumbersOnly>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-6">
+                <label for="category">Category </label>
+                <select class="form-control" name="selectedCategory" style="width: 100%;" [(ngModel)]="Category.id" tabindex="-1" aria-hidden="true" placeholder="SubSegment">
+                  <option hidden selected [ngValue]="undefined">Select Category</option>
+                  <option *ngFor="let category of categoryList" [selected]="category.id === Category.id" [value]="category.id">{{category.category}}</option>
+                </select>
+                <!--<input type="text" class="form-control" required [(ngModel)]="subSegment.id" name="id" placeholder="id">
+                <input type="text" class="form-control" required [(ngModel)]="segment.name" name="name" placeholder="Name">-->
+
+              </div>
+
+            </div>
+            <div class="row">
+              <label for="photo"> Photo Upload </label>
+              <input name="profile"  type="file" #image class="form-control" [(ngModel)]="menu.photoPath" accept="image/*" (change)="onFileSelected($event)">
+
+            </div>
+          </div>
+
+
+
+
+          <div class="modal-footer">
+
+            <button type="submit" class="btn btn-primary" [disabled]="forms.invalid"><i class="fa fa-save"></i></button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+<!--</div>-->

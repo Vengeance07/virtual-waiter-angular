@@ -33,52 +33,82 @@
     <ul class="sidebar-menu" data-widget="tree">
       <li class="header">NAVIGATION</li>
       <!-- Optionally, you can add icons to the links -->
-      <li routerLinkActive="active">
-        <a routerLink="/home/dashboard">
-          <i class="fa fa-dashboard"></i>
-          <span>Dashboard</span>
+      <!--<li routerLinkActive="active">
+        <a *ngIf="loginService.isUserLoggedIn()"  routerLink="/home/dashboard" class="fa fa-dashboard">
+          &lt;!&ndash;<i class="fa fa-dashboard"></i>
+          <span>Dashboard</span>&ndash;&gt;
+          &nbsp; Dashboard
         </a>
-      </li>
-      <li routerLinkActive="active">
-        <a routerLink="#">
-          <i class="fa fa-dashboard"></i>
-          <span>Orders</span>
-        </a>
-      </li>
-
-
-      <li routerLinkActive="active">
-        <a routerLink="#">
-          <i class="fa fa-dashboard"></i>
-          <span>Employees</span>
-        </a>
-      </li>
-      <li routerLinkActive="active">
-        <a routerLink="#">
-          <i class="fa fa-dashboard"></i>
-          <span>Foods</span>
-        </a>
-      </li>
-
+      </li>-->
       <li class="treeview">
-        <a href="#">
+        <a *ngIf="loginService.isUserLoggedIn()"  routerLink="/home/order">
           <i class="fa fa-link"></i>
-          <span>Drop</span>
+          <span>Order</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
         </a>
         <ul class="treeview-menu">
           <li routerLinkActive="active">
-            <a routerLink="#">Drop 1</a>
+            <a *ngIf="loginService.isUserLoggedIn()"  routerLink="/home/orders">All Orders</a>
           </li>
           <li routerLinkActive="active">
-            <a routerLink="#">Drop 2</a>
-          </li>
-          <li routerLinkActive="active">
-            <a routerLink="#">Drop 3</a>
+            <a *ngIf="loginService.isUserLoggedIn()"  routerLink="/home/order">Current Orders</a>
           </li>
         </ul>
+      </li>
+      <!--<li routerLinkActive="active">
+        <a *ngIf="loginService.isUserLoggedIn()"  routerLink="/home/order">
+          <i class="fa fa-dashboard"></i>
+          <span>Orders</span>
+        </a>
+      </li>-->
+
+
+      <li routerLinkActive="active">
+        <a *ngIf="loginService.isUserLoggedIn()"  routerLink="/home/employee">
+          <i class="fa fa-dashboard"></i>
+          <span>Employee</span>
+        </a>
+      </li>
+      <li routerLinkActive="active">
+        <a *ngIf="loginService.isUserLoggedIn()"  routerLink="/home/menu">
+          <i class="fa fa-dashboard"></i>
+          <span>Menu</span>
+        </a>
+      </li>
+      <li routerLinkActive="active">
+        <a *ngIf="loginService.isUserLoggedIn()"  routerLink="/home/category">
+          <i class="fa fa-dashboard"></i>
+          <span>Category</span>
+        </a>
+      </li>
+      <!--<li routerLinkActive="active">
+        <a *ngIf="loginService.isUserLoggedIn()"  routerLink="/home/type">
+          <i class="fa fa-dashboard"></i>
+          <span>Type</span>
+        </a>
+      </li>-->
+      <li routerLinkActive="active">
+        <a *ngIf="loginService.isUserLoggedIn()"  routerLink="/home/position">
+          <i class="fa fa-dashboard"></i>
+          <span>Position</span>
+        </a>
+      </li>
+      <li routerLinkActive="active">
+        <a *ngIf="loginService.isUserLoggedIn()"  routerLink="/home/user">
+          <i class="fa fa-dashboard"></i>
+          <span>User</span>
+        </a>
+      </li>
+      <li routerLinkActive="active">
+        <a *ngIf="loginService.isUserLoggedIn()"  routerLink="/home/offer">
+          <i class="fa fa-dashboard"></i>
+          <span>Offer</span>
+        </a>
+      </li>
+
+
     </ul>
     <!-- /.sidebar-menu -->
   </section>

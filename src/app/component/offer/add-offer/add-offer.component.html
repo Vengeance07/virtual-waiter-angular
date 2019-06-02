@@ -1,0 +1,53 @@
+<!--<div class="modal fade in add-category">-->
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header" style="display:block">
+      <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">×</span></button>
+      <h4 class="modal-title pull-left">{{task}} Offer</h4>
+    </div>
+    <div class="modal-body">
+
+      <form #imageForm = ngForm (ngSubmit)="onSubmit()">
+
+        <div class = "row">
+          <div class="input-field col-md-6">
+            <input  name="id" type="hidden"  class="form-control" [(ngModel)]="offer.id" placeholder="id">
+          </div>
+        </div>
+        <div class="row">
+
+          <div class="input-field col-md-6">
+            <label for="category">Offer</label>
+            <input type="text"  name="name" #cat="ngModel" class="form-control" required minlength="3" [(ngModel)]="offer.offer" placeholder="offer">
+            <div *ngIf="cat.invalid && (cat.dirty || cat.touched)">
+              <p *ngIf="cat.hasError('required')">
+                Offer is required
+              </p>
+              <p *ngIf="cat.hasError('minlength')">
+                Minimum 3 Characters are Required
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <label for="photo"> Photo Upload </label>
+          <input name="profile"  type="file" class="form-control" [(ngModel)]="offer.photoPath" accept="image/*" (change)="onFileSelected($event)">
+
+        </div>
+        <div class="modal-footer">
+
+          <button type="submit" class="btn btn-primary" [disabled]="imageForm.invalid"><i class="fa fa-save"></i></button>
+        </div>
+
+
+      </form>
+    </div>
+
+  </div>
+  <!-- /.modal-content -->
+</div>
+<!-- /.modal-dialog -->
+<!--
+</div>
+-->

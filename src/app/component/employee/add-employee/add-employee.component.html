@@ -1,0 +1,78 @@
+<!--<div class="modal fade in add-category">-->
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header" style="display:block">
+      <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">×</span></button>
+      <h4 class="modal-title pull-left">{{task}} Employee</h4>
+    </div>
+    <div class="modal-body">
+
+      <form (ngSubmit)="onSubmit()" #form3=ngForm>
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-6">
+              <label for="name">Employee</label>
+              <input type="hidden" class="form-control" [(ngModel)]="employee.id" name="id" placeholder="id">
+              <input type="text" class="form-control" #name="ngModel" required minlength="3" [(ngModel)]="employee.name" name="name" placeholder="Employee Name">
+              <!--<div *ngIf="name.invalid && (name.dirty || name.touched)">
+                <p *ngIf="name.hasError('required')">
+                  Name is required
+                </p>
+                <p *ngIf="name.hasError('minlength')">
+                  Minimum 3 Characters are Required
+                </p>
+              </div>-->
+            </div>
+            <div class="col-md-6">
+              <label for="name">Address</label>
+              <input type="text" class="form-control" #add="ngModel" required minlength="4" [(ngModel)]="employee.address" name="address" placeholder="Employee Address">
+              <!--<div *ngIf="add.invalid && (add.dirty || add.touched)">
+                <p *ngIf="add.hasError('required')">
+                  Address is required
+                </p>
+                <p *ngIf="add.hasError('minlength')">
+                  Minimum 4 Characters are Required
+                </p>
+              </div>-->
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <label for="name">Salary</label>
+              <input type="text" class="form-control" required [(ngModel)]="employee.salary" name="salary" placeholder="Salary" appNumbersOnly>
+
+            </div>
+            <div class="col-md-6">
+              <label for="position">Position </label>
+              <select class="form-control" #pos="ngModel" name="position" style="width: 100%;" [(ngModel)]="Position.id" tabindex="-1" aria-hidden="true" placeholder="SubSegment">
+                <option hidden selected [ngValue]="undefined">Select Segment</option>
+                <option *ngFor="let position of positionList" [selected]="position.id === Position.id" [value]="position.id">{{position.position}}</option>
+              </select>
+              <!--<div *ngIf="pos.invalid && (pos.dirty || pos.touched)">
+                <p *ngIf="pos.hasError('required')" class="text-danger">
+                  Position is required
+                </p>
+              </div>-->
+            </div>
+          </div>
+        </div>
+
+
+
+
+        <div class="modal-footer">
+
+          <button type="submit" class="btn btn-primary" [disabled]="form3.invalid"><i class="fa fa-save"></i></button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+  <!-- /.modal-content -->
+</div>
+<!-- /.modal-dialog -->
+<!--
+</div>
+-->
